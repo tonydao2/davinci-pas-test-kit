@@ -1,4 +1,5 @@
 require 'subscriptions_test_kit'
+require_relative 'pas_server_subscription_capability_statement_test'
 require_relative 'pas_server_subscription_input_conformance'
 
 module DaVinciPASTestKit
@@ -15,6 +16,8 @@ module DaVinciPASTestKit
       input_order :server_endpoint, :smart_credentials, :access_token, :subscription_resource
       run_as_group
 
+      test from: :pas_server_v221_subscription_capability_statement_test
+
       test from: :pas_server_v221_subscription_input_conformance do
         input :subscription_resource,
               title: 'Pended Prior Authorization Subscription',
@@ -26,6 +29,7 @@ module DaVinciPASTestKit
                      modify the Subscription before submission, e.g., to point to Inferno's notification endpoint.
                    )
       end
+      
       test from: :subscriptions_r4_server_notification_delivery,
            title: 'Send Subscription and Receive Handshake Notification from Server',
            description: %(
