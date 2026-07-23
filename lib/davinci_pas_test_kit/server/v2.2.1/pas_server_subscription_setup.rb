@@ -29,7 +29,7 @@ module DaVinciPASTestKit
                      modify the Subscription before submission, e.g., to point to Inferno's notification endpoint.
                    )
       end
-      
+
       test from: :subscriptions_r4_server_notification_delivery,
            title: 'Send Subscription and Receive Handshake Notification from Server',
            description: %(
