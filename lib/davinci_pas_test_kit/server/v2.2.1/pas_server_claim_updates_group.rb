@@ -2,7 +2,6 @@ require_relative '../server_request_bundle_validation_test'
 require_relative '../claim_submit_operation_test'
 require_relative '../server_response_bundle_validation_test'
 require_relative 'claim_updates/server_claim_update_response_tests'
-require_relative 'claim_updates/server_replaced_pa_tests'
 require_relative '../../cross_suite/tags'
 
 module DaVinciPASTestKit
@@ -99,17 +98,6 @@ module DaVinciPASTestKit
 
         test from: :pas_server_v221_claim_update_item_sequence_echo_test
         test from: :pas_server_v221_claim_update_current_results_test
-      end
-
-      group do
-        title 'Verify search for a "replaced" PA response'
-        description %(
-          This test verifies that when an inquiry searches using a reference number
-          from a replaced prior authorization, the server returns an authorization
-          response with a different reference number.
-        )
-
-        test from: :pas_server_v221_claim_update_replaced_pa_inquire_test
       end
     end
   end
